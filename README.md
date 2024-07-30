@@ -13,7 +13,7 @@ Compare different proximal generative models in ```scripts/[model_name]/```.
 
 ```GPA_NN```, ```OT_Flow_GAN```, ```ot_flow-master``` comes with ```runscript.sh``` file to run the experiments with different cases for the examples. 
 
-```f-Gamma-GAN`` has two python codes for different examples. Simply running the code to produce experiment results with different cases for the examples.
+```f-Gamma-GAN``` has two python codes for different examples. Simply running the code to produce experiment results with different cases for the examples.
 
 ```sgm_simple``` contains two jupyter notebooks for different examples. For ```SGM-VE-Learning_student_t``` set df=1.0 or df=3.0 and then run the entire blocks to produce results for the examples. 
 

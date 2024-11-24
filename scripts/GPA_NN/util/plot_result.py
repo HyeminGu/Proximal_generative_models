@@ -508,9 +508,9 @@ def trajectories_to_animation(x_lim, y_lim, trajectories=None, N_samples_P=None,
         if quantile == True:
             flag = add_quantile_contour(ax, dataset, r_param)
             if flag == -1:
-                ax.scatter(X_[:,0], X_[:,1], s=3, zorder=1, alpha=0.7)
+                ax.scatter(X_[:,0], X_[:,1], c='c', s=3, zorder=1, alpha=0.7)
         else:
-            ax.scatter(X_[:,0], X_[:,1], s=3, zorder=1, alpha=0.7)
+            ax.scatter(X_[:,0], X_[:,1], c='c', s=3, zorder=1, alpha=0.7)
             
         
         ims.append([im, ttl])

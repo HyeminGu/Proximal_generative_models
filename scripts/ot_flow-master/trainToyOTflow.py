@@ -14,7 +14,9 @@ from src.plotter import plot4
 from src.OTFlowProblem import *
 import config
 import pickle
+import time
 
+t_init = time.time()
 cf = config.getconfig()
 
 if cf.gpu: # if gpu on platform
@@ -28,7 +30,7 @@ else:  # if no gpu on platform, assume debugging on a local cpu
 
 parser = argparse.ArgumentParser('OT-Flow')
 parser.add_argument(
-    '--data', choices=['swissroll', '8gaussians', 'pinwheel', 'circles', 'moons', '2spirals', 'checkerboard', 'rings', 'student-t', 'Keystrokes'],
+    '--data', choices=['swissroll', '8gaussians', 'pinwheel', 'circles', 'moons', '2spirals', 'checkerboard', 'rings', 'student-t', 'Keystrokes', 'Heavytail_submanifold', 'Lorenz63'],
     type=str, default='student-t'
 )
 parser.add_argument(
@@ -101,8 +103,12 @@ if __name__ == '__main__':
     # neural network for the potential function Phi
     if args.data == 'Keystrokes':
         d = 1
+    elif args.data == 'Heavytail_submanifold':
+        d = 110
+    elif args.data == 'Lorenz63':
+        d = 3
     else:
-        d      = 2
+        d = 2
     alph   = args.alph
     nt     = args.nt
     nt_val = args.nt_val
@@ -206,7 +212,7 @@ if __name__ == '__main__':
                 curr_state = net.state_dict()
                 net.load_state_dict(best_params)
 
-                nSamples = 20000
+                nSamples = 10000
                 p_samples = cvt(torch.Tensor( toy_data.inf_train_gen(args.data, batch_size=nSamples, misc_params=misc_params) ))
                 y = cvt(torch.randn(nSamples,d)) # sampling from the standard normal (rho_1)
 
@@ -256,6 +262,6 @@ if __name__ == '__main__':
     logger.info(f"Result was stored in {filename}.")
 
 
+t_final = time.time()
 
-
-
+print(t_final - t_init)

@@ -150,6 +150,25 @@ def inf_train_gen(data, batch_size=200, rng=None, misc_params={}):
         X = np.reshape(np.loadtxt(filename), (-1,1))
         return X
     
+    elif data == 'Heavytail_submanifold':
+        def embed_data(x, di, df, offset):
+            z=np.concatenate((offset*np.ones([x.shape[0],di]),x),axis=1)
+            z=np.concatenate((z,offset*np.ones([x.shape[0],df])),axis=1)
+    
+            return z
+            
+        d = 10
+        np.random.seed(100)
+        X = np.random.standard_cauchy(size=(batch_size, d))
+        x = np.abs(X)
+        np.random.seed(100)
+        y = np.random.uniform(low=0.5, high=2.0, size=(1, d))
+        
+        return embed_data(np.sign(X)*(x ** y), di = 0, df=100, offset=0.0)
+    
+    elif data == 'Lorenz63':
+        X_ = np.load("../../Lorenz63/lorenzdataset_1000.npy")
+        return X_
         
     else:
         return inf_train_gen("8gaussians", rng, batch_size)

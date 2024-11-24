@@ -11,7 +11,10 @@ def input_params():
         '-N_P', '--N_samples_P', type=int, help='total number of prior samples', #default=200,
     )
     parser.add_argument(
-        '-N_dim', type=int, help='dimension of input data',
+        '-N_dim', type=int, help='entire dimension of input data',
+    )
+    parser.add_argument(
+        '-N_submnfld_dim', type=int, help='submanifold dimension of input data',
     )
     parser.add_argument(
         '-N_project_dim', type=int, help='dimension of PCA projected space on input',

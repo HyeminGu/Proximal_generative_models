@@ -191,7 +191,6 @@ def generate_logistic(
 ):
     np.random.seed(random_seed)
     X = np.random.logistic(loc=loc, scale=scale, size=size)
-
     return X
     
 def embed_data(

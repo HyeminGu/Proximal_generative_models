@@ -80,6 +80,7 @@ def train_disc(parameters, phi, P, Q, lr_phi, epochs_phi, loss_par, NN_par, data
     
     if track_loss == True:
         track_losses = []
+        
     
     #current_loss = -1e+6
     for in_it in range(1, epochs_phi+1): # Loop for training NN discriminator phi*

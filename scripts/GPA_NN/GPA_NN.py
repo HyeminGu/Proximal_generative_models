@@ -83,7 +83,6 @@ if param['unseen'] == True:
 
 print("Data prepared.")
 
-
 # Discriminator learning  -----------------------------------------
 # Discriminator construction using Neural Network
 from lib.construct_NN import check_nn_topology, initialize_NN, model

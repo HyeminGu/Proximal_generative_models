@@ -24,19 +24,12 @@ NoT = 10000 #number of test samples to save
 
 
 #names of GAN methods we want to test: used to name saved sample files
-methods=[2.0,]#'W','W',2.0,5.0,10.0,100.0,2.0,5.0,10.0,100.0]
-optimizer=['RMS',]#['RMS','RMS','RMS','RMS','RMS','RMS','RMS','RMS','RMS','RMS']
-GP_type=[1]#[2,1,1,1,1,1,0,0,0,0] #1 or 2 sided grad penalty, 0 means no GP
-learning_rates=[2e-4,]#[2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4]
-reverse=[1]#[0,0,1,1,1,1,1,1,1,1] #set to 1 to use reverse GAN, 0 for forward GAN
+methods=[2.0,2.0,]#'W','W',2.0,5.0,10.0,100.0,2.0,5.0,10.0,100.0]
+optimizer=['RMS','RMS',]#['RMS','RMS','RMS','RMS','RMS','RMS','RMS','RMS','RMS','RMS']
+GP_type=[1,0]#[2,1,1,1,1,1,0,0,0,0] #1 or 2 sided grad penalty, 0 means no GP
+learning_rates=[2e-4,2e-4,]#[2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4]
+reverse=[1,1]#[0,0,1,1,1,1,1,1,1,1] #set to 1 to use reverse GAN, 0 for forward GAN
 
-'''
-methods=['KL', 'KL', 2.0, 10.0]#'W','W',2.0,5.0,10.0,100.0,2.0,5.0,10.0,100.0]
-optimizer=['RMS', 'RMS', 'RMS', 'RMS', ]#['RMS','RMS','RMS','RMS','RMS','RMS','RMS','RMS','RMS','RMS']
-GP_type=[0,0,0,0]#[2,1,1,1,1,1,0,0,0,0] #1 or 2 sided grad penalty, 0 means no GP
-learning_rates=[2e-4,2e-4,2e-4,2e-4]#[2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4]
-reverse=[1,0,1,1]#[0,0,1,1,1,1,1,1,1,1] #set to 1 to use reverse GAN, 0 for forward GAN
-'''
 L=1.0
 beta=10.0
 
@@ -195,16 +188,6 @@ def sample_Q(m, df=nu):
     
     return embed_data(x)
 
-'''
-def sample_Q(m):
-    u=np.random.chisquare(nu,size=[m,1])
-    x=np.divide(np.random.normal(0.0,1.0,size=[m,d]),np.sqrt(u/nu))
-    
-    idx=np.random.randint(0,4,size=[m])
-    x=x+Delta_array[idx,:]
-    
-    return embed_data(x)
-'''
 
 G_sample_array=[]
 D_real_array=[]

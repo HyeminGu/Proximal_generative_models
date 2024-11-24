@@ -30,13 +30,7 @@ GP_type=[1,0]#[2,1,1,1,1,1,0,0,0,0] #1 or 2 sided grad penalty, 0 means no GP
 learning_rates=[2e-4,2e-4]#[2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4]
 reverse=[1,1]#[0,0,1,1,1,1,1,1,1,1] #set to 1 to use reverse GAN, 0 for forward GAN
 
-'''
-methods=['KL', 'KL', 2.0, 10.0]#'W','W',2.0,5.0,10.0,100.0,2.0,5.0,10.0,100.0]
-optimizer=['RMS', 'RMS', 'RMS', 'RMS', ]#['RMS','RMS','RMS','RMS','RMS','RMS','RMS','RMS','RMS','RMS']
-GP_type=[0,0,0,0]#[2,1,1,1,1,1,0,0,0,0] #1 or 2 sided grad penalty, 0 means no GP
-learning_rates=[2e-4,2e-4,2e-4,2e-4]#[2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4,2e-4]
-reverse=[1,0,1,1]#[0,0,1,1,1,1,1,1,1,1] #set to 1 to use reverse GAN, 0 for forward GAN
-'''
+
 L=1.0
 beta=10.0
 

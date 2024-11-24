@@ -17,7 +17,7 @@ Compare different proximal generative models in ```scripts/[model_name]/```.
 
 ```sgm_simple``` contains two jupyter notebooks for different examples. For ```SGM-VE-Learning_student_t``` set df=1.0 or df=3.0 and then run the entire blocks to produce results for the examples. 
 
-Generated samples will be stored in ```assets/[example_name]/```. 
+Generated samples will be stored in ```assets/[example_name]/```. Due to the large size, those files are not uploaded in Github.
 
 * ```Learning_student_t```: 2D Student-t experiments from ```GPA_NN``` and ```f-Gamma-GAN``` will be stored.
 * ```student-t```: 2D Student-t experiments from other models will be stored.
